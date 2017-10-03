@@ -1,0 +1,31 @@
+version: "3.3"
+
+services:
+
+  zeppelin:
+    image: docker.sqooba.io/zeppelin
+    environment:
+      - ZEPPELIN_LOG_DIR='/zeppelin/logs'
+      - ZEPPELIN_NOTEBOOK_DIR='/zeppelin/notebooks'
+    ports:
+      - "8080:8080" # zeppelin ui
+      - "4040:4040" # spark ui
+    networks:
+      - zeppelinnet
+    volumes:
+      - data:/zeppelin/data
+      - logs:/zeppelin/logs
+      - boostrap:/zeppelin/boostrap
+      - notebooks:/zeppelin/notebooks
+      - spark-warehouse:/zeppelin/spark-warehouse
+
+networks:
+  zeppelinnet:
+    driver: bridge
+
+volumes:
+  data:
+  logs:
+  boostrap:
+  notebooks:
+  spark-warehouse:
