@@ -3,10 +3,12 @@ Snorkel - Quick dive into your data Ocean
 
 # How to launch it
 
-1. ./build-images
+1. `./build-images.sh`
    builds the docker image
-2. ./start-zeppelin.sh
+2. `./start-zeppelin.sh`
    starts Zeppelin container. Default port for Zeppelin is 8080, i.e. [http://localhost:8080](http://localhost:8080)
+3. `./stop-zeppelin.sh`
+   stops Zeppelin container
 
 # Python and JS dependencies
 
