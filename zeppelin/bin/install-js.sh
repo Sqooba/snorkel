@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-cp --no-clobber /zeppelin/bootstrap/js/*.js /zeppelin/webapps/webapp/scripts/
+rsync -av /zeppelin/bootstrap/js/ /zeppelin/webapps/webapp/scripts/
 
-cp --no-clobber /zeppelin/bootstrap/js/*.js /zeppelin/webapps/webapp/styles/
+rsync -av /zeppelin/bootstrap/css/ /zeppelin/webapps/webapp/styles/
