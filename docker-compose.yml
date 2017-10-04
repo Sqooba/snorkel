@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   zeppelin-starter:
-    image: docker.sqooba.io/zeppelin
+    image: sqooba/zeppelin-starter
     environment:
       - ZEPPELIN_LOG_DIR=/zeppelin/logs
       - ZEPPELIN_NOTEBOOK_DIR=/zeppelin/notebooks

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build . -t docker.sqooba.io/zeppelin
+docker build . -t sqooba/zeppelin-starter
