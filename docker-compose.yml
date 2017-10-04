@@ -9,16 +9,16 @@ services:
       - ZEPPELIN_NOTEBOOK_DIR=/zeppelin/notebooks
       - SPARK_SUBMIT_OPTIONS='--conf spark.sql.warehouse.dir=/zeppelin/spark-warehouse'
     ports:
-      - "8081:8080" # zeppelin ui
-      - "4041:4040" # spark ui
+      - "${ZEPPELIN_PORT}:8080" # zeppelin ui
+      - "${SPARK_UI_PORT}:4040" # spark ui
     networks:
       - zeppelinnet
     volumes:
-      - ${DIR}/zeppelin/data:/zeppelin/data
-      - ${DIR}/zeppelin/logs:/zeppelin/logs
-      - ${DIR}/zeppelin/bootstrap:/zeppelin/bootstrap:ro
-      - ${DIR}/zeppelin/notebooks:/zeppelin/notebooks
-      - ${DIR}/zeppelin/spark-warehouse:/zeppelin/spark-warehouse
+      - ${ZEPPELIN_ROOT_DIR}/data:/zeppelin/data
+      - ${ZEPPELIN_ROOT_DIR}/logs:/zeppelin/logs
+      - ${ZEPPELIN_ROOT_DIR}/bootstrap:/zeppelin/bootstrap:ro
+      - ${ZEPPELIN_ROOT_DIR}/notebooks:/zeppelin/notebooks
+      - ${ZEPPELIN_ROOT_DIR}/spark-warehouse:/zeppelin/spark-warehouse
 
 networks:
   zeppelinnet:
