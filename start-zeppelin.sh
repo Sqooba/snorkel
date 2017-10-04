@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sudo docker-compose up -d
+source ./env.sh
+
+docker-compose up -d

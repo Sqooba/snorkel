@@ -93,3 +93,7 @@ Temporary Items
 # End of https://www.gitignore.io/api/macos,intellij+iml
 
 .idea
+zeppelin/data
+zeppelin/logs
+zeppelin/notebooks
+zeppelin/spark-warehouse
