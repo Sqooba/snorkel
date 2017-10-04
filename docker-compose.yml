@@ -7,6 +7,7 @@ services:
     environment:
       - ZEPPELIN_LOG_DIR=/zeppelin/logs
       - ZEPPELIN_NOTEBOOK_DIR=/zeppelin/notebooks
+      - ZEPPELIN_INTP_MEM=${ZEPPELIN_INTP_MEMORY}
       - SPARK_SUBMIT_OPTIONS='--conf spark.sql.warehouse.dir=/zeppelin/spark-warehouse'
     ports:
       - "${ZEPPELIN_PORT}:8080" # zeppelin ui
