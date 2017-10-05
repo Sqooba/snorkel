@@ -17,7 +17,7 @@ services:
     volumes:
       - ${ZEPPELIN_ROOT_DIR}/data:/zeppelin/data
       - ${ZEPPELIN_ROOT_DIR}/logs:/zeppelin/logs
-      - ${SCRIPT_DIR}/bootstrap:/zeppelin/bootstrap:ro
+      - ${SCRIPT_DIR}/zeppelin/bootstrap:/zeppelin/bootstrap:ro
       - ${ZEPPELIN_ROOT_DIR}/notebooks:/zeppelin/notebooks
       - ${ZEPPELIN_ROOT_DIR}/spark-warehouse:/zeppelin/spark-warehouse
 
