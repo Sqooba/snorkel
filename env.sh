@@ -16,7 +16,7 @@ fi
 INTEPRETER_MEMORY=$((MEMORY/2))
 ZEPPELIN_INTP_MEMORY=${ZEPPELIN_INTP_MEMORY:--Xmx${INTEPRETER_MEMORY}g}
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export ZEPPELIN_ROOT_DIR=${ZEPPELIN_ROOT_DIR:-$SCRIPT_DIR/zeppelin}
 
 export ZEPPELIN_PORT=${ZEPPELIN_PORT:-8080}
