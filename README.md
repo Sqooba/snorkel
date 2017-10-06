@@ -74,7 +74,7 @@ Say you're missing the python web micro-framework [Flask](https://github.com/pal
 	
 And execute `./refresh.sh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
 
-### JS library
+### JS libraries
 
 Let's imagine you want to add the mobx library to your dependencies.
 
@@ -92,6 +92,6 @@ There are two ways to add javascript dependencies to your Zeppelin notebook:
 	* Add the js file to the `bootstrap/js` folder
 	* Execute `./refresh.sh`. This will copy the library in the container at a location where zeppelin can serve it to your browser.
 
-### Scala dependency
+### Scala/Java dependency
 
-TODO
+You can use zeppelin's built-in [dependency interpreter](https://zeppelin.apache.org/docs/0.7.3/interpreter/spark.html#3-dynamic-dependency-loading-via-sparkdep-interpreter) to pull dependencies without leaving your notebook
