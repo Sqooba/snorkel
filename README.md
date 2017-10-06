@@ -16,12 +16,14 @@ Common python and javascript data science libraries also come pre-installed.
 1. `./build-images.sh`
 
    Run __once__ to build the docker image and install the python and javascript dependencies.
+   
 2. `./start-zeppelin.sh`
 
    Starts the Zeppelin container.
    
    Default port for Zeppelin is 8080, i.e. [http://localhost:8080](http://localhost:8080).
    Default port for Spark UI is 4040, i.e. [http://localhost:4040](http://localhost:4040).
+   
 3. `./stop-zeppelin.sh`
 
    Stops Zeppelin container
@@ -70,11 +72,25 @@ Say you're missing the python web micro-framework [Flask](https://github.com/pal
 
 	Flask==0.12.2
 	
-And execute `./refresh.sh`. Voilà! Flask is avaiable in your Zeppelin notebook, no restart needed. 
+And execute `./refresh.sh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
 
 ### JS library
 
-TODO
+Let's imagine you want to add the mobx library to your dependencies.
+
+There are two ways to add javascript dependencies to your Zeppelin notebook: 
+
+0. By using [unpkg](https://unpkg.com), a "a fast, global content delivery network for everything on npm":
+
+	Add the following script tag to your code in the notebook's snippet: 
+				`<script src="https://unpkg.com/mobx"></script>`
+	This will inject the static (non-minified) source code of the library in your browser.
+	
+0. By using the provided `refresh.sh` script:
+
+	* Download the source code of the library from any CDN
+	* Add the js file to the `bootstrap/js` folder
+	* Execute `./refresh.sh`. This will copy the library in the container at a location where zeppelin can serve it to your browser.
 
 ### Scala dependency
 
