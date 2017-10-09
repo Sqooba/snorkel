@@ -95,3 +95,20 @@ There are two ways to add javascript dependencies to your Zeppelin notebook:
 ### Scala/Java dependency
 
 You can use zeppelin's built-in [dependency interpreter](https://zeppelin.apache.org/docs/0.7.3/interpreter/spark.html#3-dynamic-dependency-loading-via-sparkdep-interpreter) to pull dependencies without leaving your notebook
+
+For example, if you need the Scala plotting library [Vegas](https://github.com/vegas-viz/Vegas), just add the following 
+line in a snippet at the very beginning of your notebook:
+
+    %spark.dep
+    z.load("org.vegas-viz:vegas_2.11:0.3.11")
+
+__Do not forget to specify the `spark.dep` intepreter__!
+    
+    
+Execute the snippet before running any code (or restart your intepreter and execute the snippet).
+You can now use the library normally:
+
+    import vegas._
+    ...
+
+    
