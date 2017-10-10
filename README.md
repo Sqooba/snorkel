@@ -112,4 +112,24 @@ You can now use the library normally:
     import vegas._
     ...
 
-    
+
+# Dependencies table
+
+The below table list all the dependencies included inside the container.
+
+Library | Version | Licence
+--- | --- | ---
+[matplotlib](https://matplotlib.org/) | 2.0.2 | PSF
+[NumPy](http://www.numpy.org/) | 1.13.1 | BSD
+[pandas](http://pandas.pydata.org/) | 0.20.3 | BSD
+[python-igraph](http://igraph.org/) | 0.7.1.post6 | GPL 2 
+[cairocffi](https://github.com/Kozea/cairocffi) | 0.8.0 | BSD-3-Clause
+[scikit-learn](http://scikit-learn.org/stable/) | 0.19.0 | BSD-3-Clause
+[SciPy](https://www.scipy.org/) | 0.19.1 | BSD
+[Seaborn](https://seaborn.pydata.org/) | 0.8.1 | BSD-3-Clause
+[sklearn](http://scikit-learn.org/) | 0.0 | BSD
+[d3js](https://d3js.org/) | 4.10.2 | BSD-3-Clause
+[leaflet](http://leafletjs.com) | 1.2.0 | BSD 2-clause
+[Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) | 1.1.0 | MIT
+[Zeppelin](https://zeppelin.apache.org) | 0.7.3 | Apache-2.0
+[Docker Compose](https://github.com/docker/compose) | 3.3 | Apache-2.0
