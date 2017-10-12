@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./env.sh
+function start {
 
 docker-compose up -d
 
@@ -19,3 +19,45 @@ echo
 echo "Run $(dirname $0)/refresh.sh to update js/css/python dependencies"
 echo
 echo "========== Happy Snorkeling ! =========="
+
+}
+
+function stop {
+
+docker-compose stop
+
+}
+
+function help {
+echo "help"
+}
+
+
+source ./env.sh
+
+# Parse long options
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help") set -- "$@" "-h" ;;
+    "--start")set -- "$@" "-r" ;;
+    "--stop") set -- "$@" "-s" ;;
+    "?") set -- "$@" "-?" ;;
+    *)        set -- "$@" "$arg"
+  esac
+done
+
+# Parse short options
+OPTIND=1
+while getopts "hrs?" opt; do
+  case "$opt" in
+    "h") help; exit 0 ;;
+    "r") start ;;
+    "s") stop ;;
+    "?") help exit 0 ;;
+  esac
+done
+shift $(expr $OPTIND - 1) # remove options from positional parameters
+
+
+
