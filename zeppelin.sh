@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+# NAME
+#    zeppelin.sh - controls snorkel-zeppelin docker image
+#
+# SYNOPSIS
+#    zeppelin.sh [-]
+#
+# DESCRIPTION
+#    zeppelin.sh controles the zeppelin docker image in snorkel
+#    the script takes exactly one argument
+#
+# ARGUMENTS
+#    -h/-?  | --help    Displays help
+#    -r     | --start   Starts zeppelin
+#    -s     | --stop    Stops zeppelin
+
+
 function start {
 
 docker-compose up -d
@@ -29,9 +45,21 @@ docker-compose stop
 }
 
 function help {
-echo "help"
+echo "Usage: ${0} arg"
+echo "  Where arg is exactly one argument."
+echo
+echo "Arguments:"
+echo "  -h/-?  | --help    Displays help"
+echo "  -r     | --start   Starts zeppelin"
+echo "  -s     | --stop    Stops zeppelin "
+
 }
 
+if [ ! $# -eq 1 ]; then
+    echo "${0} takes exactly 1 argument."
+    help
+    exit 1
+fi
 
 source ./env.sh
 
