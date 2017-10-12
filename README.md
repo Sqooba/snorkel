@@ -15,7 +15,7 @@ data science libraries.
 
    Run __once__ to build the docker image and install the python and javascript dependencies.
    
-2. `./start-zeppelin.sh`
+2. `./zeppelin.sh --start`
 
    Starts the Zeppelin container.
    
@@ -23,7 +23,7 @@ data science libraries.
    Default port for Spark UI is 4040, i.e. [http://localhost:4040](http://localhost:4040), once the first Spark job
    has been started.
    
-3. `./stop-zeppelin.sh`
+3. `./zeppelin.sh --stop`
 
    Stops Zeppelin container
    
@@ -42,7 +42,7 @@ Host | Container | Description
 `snorkel/zeppelin/spark-warehouse` | `/zeppelin/spark-warehouse` | Storage for temporary Spark tables
 
 It is possible to override the location of these volumes by setting the environment variable `ZEPPELIN_ROOT_DIR` 
-to your preferred location before running the `start-zeppelin.sh` script
+to your preferred location before running the `zeppelin.sh --start` script
 
 ### Zeppelin interpreter memory
 
