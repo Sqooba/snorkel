@@ -18,6 +18,8 @@
 
 function start {
 
+echo "Starting snorkel..."
+
 docker-compose up -d
 
 echo
@@ -40,7 +42,9 @@ echo "========== Happy Snorkeling ! =========="
 
 function stop {
 
+echo "Stopping snorkel..."
 docker-compose stop
+echo "Snorkel stopped"
 
 }
 
