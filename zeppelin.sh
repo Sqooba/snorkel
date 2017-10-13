@@ -7,13 +7,14 @@
 #    zeppelin.sh [-]
 #
 # DESCRIPTION
-#    zeppelin.sh controles the zeppelin docker image in snorkel
+#    zeppelin.sh controls the zeppelin docker image in snorkel
 #    the script takes exactly one argument
 #
 # ARGUMENTS
 #    -h/-?  | --help    Displays help
 #    -r     | --start   Starts zeppelin
 #    -s     | --stop    Stops zeppelin
+#    -f     | --refresh Refresh dependencies
 
 
 function start {
@@ -48,6 +49,18 @@ echo "Snorkel stopped"
 
 }
 
+function refresh {
+
+echo "Refreshing javascript dependencies"
+docker exec -it zeppelinstarter_zeppelin-starter_1 install-js.sh
+
+echo "Refreshing python dependencies"
+docker exec -it zeppelinstarter_zeppelin-starter_1 install-python.sh
+
+echo "Finished!!!"
+
+}
+
 function help {
 echo "Usage: ${0} arg"
 echo "  Where arg is exactly one argument."
@@ -56,6 +69,7 @@ echo "Arguments:"
 echo "  -h/-?  | --help    Displays help"
 echo "  -r     | --start   Starts zeppelin"
 echo "  -s     | --stop    Stops zeppelin "
+echo "  -f     | --refresh Refresh dependencies"
 
 }
 
@@ -74,6 +88,7 @@ for arg in "$@"; do
     "--help") set -- "$@" "-h" ;;
     "--start")set -- "$@" "-r" ;;
     "--stop") set -- "$@" "-s" ;;
+    "--refresh") set -- "$@" "-f" ;;
     "?") set -- "$@" "-?" ;;
     *)        set -- "$@" "$arg"
   esac
@@ -86,6 +101,7 @@ while getopts "hrs?" opt; do
     "h") help; exit 0 ;;
     "r") start ;;
     "s") stop ;;
+    "f") refresh ;;
     "?") help exit 0 ;;
   esac
 done
