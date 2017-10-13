@@ -15,7 +15,7 @@ data science libraries.
 
    Run __once__ to build the docker image and install the python and javascript dependencies.
    
-2. `./start-zeppelin.sh`
+2. `./zeppelin.sh --start`
 
    Starts the Zeppelin container.
    
@@ -23,7 +23,7 @@ data science libraries.
    Default port for Spark UI is 4040, i.e. [http://localhost:4040](http://localhost:4040), once the first Spark job
    has been started.
    
-3. `./stop-zeppelin.sh`
+3. `./zeppelin.sh --stop`
 
    Stops Zeppelin container
    
@@ -42,7 +42,7 @@ Host | Container | Description
 `snorkel/zeppelin/spark-warehouse` | `/zeppelin/spark-warehouse` | Storage for temporary Spark tables
 
 It is possible to override the location of these volumes by setting the environment variable `ZEPPELIN_ROOT_DIR` 
-to your preferred location before running the `start-zeppelin.sh` script
+to your preferred location before running the `zeppelin.sh --start` script
 
 ### Zeppelin interpreter memory
 
@@ -60,7 +60,7 @@ You can override these values by setting the environment variables, respectively
 
 `zeppelin/bootstrap/js` and `zeppelin/bootstrap/css` lets you deploy JS and CSS libraries inside Zeppelin.
 
-Call `./refresh.sh` to refresh your container without restarting it!
+Call `./zeppelin.sh --refresh` to refresh your container without restarting it!
 
 ## Examples
 
@@ -71,7 +71,7 @@ Say you're missing the python web micro-framework [Flask](https://github.com/pal
 
 	Flask==0.12.2
 	
-And execute `./refresh.sh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
+And execute `./zeppelin.sh --refresh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
 
 ### JS libraries
 
@@ -85,11 +85,11 @@ There are two ways to add javascript dependencies to your Zeppelin notebook:
 				`<script src="https://unpkg.com/mobx"></script>`
 	This will inject the static (non-minified) source code of the library in your browser.
 	
-0. By using the provided `refresh.sh` script:
+0. By using the `zeppelin.sh` script:
 
 	* Download the source code of the library from any CDN
 	* Add the js file to the `bootstrap/js` folder
-	* Execute `./refresh.sh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
+	* Execute `./zeppelin.sh --refresh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
 
 ### Scala/Java dependency
 
