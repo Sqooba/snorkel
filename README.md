@@ -60,7 +60,7 @@ You can override these values by setting the environment variables, respectively
 
 `zeppelin/bootstrap/js` and `zeppelin/bootstrap/css` lets you deploy JS and CSS libraries inside Zeppelin.
 
-Call `./refresh.sh` to refresh your container without restarting it!
+Call `./zeppelin.sh --refresh` to refresh your container without restarting it!
 
 ## Examples
 
@@ -71,7 +71,7 @@ Say you're missing the python web micro-framework [Flask](https://github.com/pal
 
 	Flask==0.12.2
 	
-And execute `./refresh.sh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
+And execute `./zeppelin.sh --refresh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
 
 ### JS libraries
 
@@ -85,11 +85,11 @@ There are two ways to add javascript dependencies to your Zeppelin notebook:
 				`<script src="https://unpkg.com/mobx"></script>`
 	This will inject the static (non-minified) source code of the library in your browser.
 	
-0. By using the provided `refresh.sh` script:
+0. By using the `zeppelin.sh` script:
 
 	* Download the source code of the library from any CDN
 	* Add the js file to the `bootstrap/js` folder
-	* Execute `./refresh.sh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
+	* Execute `./zeppelin.sh --refresh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
 
 ### Scala/Java dependency
 
