@@ -5,7 +5,7 @@ call env.cmd
 docker-compose up -d
 popd
 
-echo
+echo.
 echo ========== Sqooba Snorkeling Toolset ==========
 echo.
 echo Zeppelin and Spark are starting ... might take some time ...
