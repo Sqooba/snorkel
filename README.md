@@ -11,6 +11,8 @@ data science libraries.
 
 # How to launch it
 
+### On Linux
+
 1. `./build-images.sh`
 
    Run __once__ to build the docker image and install the python and javascript dependencies.
@@ -27,6 +29,27 @@ data science libraries.
 
    Stops Zeppelin container
    
+
+### On Windows
+
+Windows scripts are available (`.cdm` extension). You can execute them from the command prompt or the powershell, or simply double-click on them from the explorer (or _right-click > run_).
+
+1. `build-images.cmd`
+
+   Run __once__ to build the docker image and install the python and javascript dependencies.
+   
+2. `start-zeppelin.cmd`
+
+   Starts the Zeppelin container. A command prompt window will appear, press any key to close it.
+   
+   Default port for Zeppelin is 8080, i.e. [http://localhost:8080](http://localhost:8080).
+   Default port for Spark UI is 4040, i.e. [http://localhost:4040](http://localhost:4040), once the first Spark job
+   has been started.
+   
+3. `stop-zeppelin.cmd`
+
+   Stops Zeppelin container. Once again, press any key to close the window.
+
 # Custom configuration
 
 ### Workspace persistence
@@ -47,7 +70,7 @@ to your preferred location before running the `zeppelin.sh --start` script
 ### Zeppelin interpreter memory
 
 By default half of the total available memory will be allocated to the Zeppelin interpreters on start.
-You can override this value by setting the environment variable `ZEPPELIN_INTP_MEMORY` (in Gb, eg: `export ZEPPELIN_INTP_MEMORY=8` for 8 Gb of memory)
+You can override this value by setting the environment variable `ZEPPELIN_INTP_MEMORY` (the value should be `-Xmx<memory>g`, where `<memory>` is the size in GB, eg: `export ZEPPELIN_INTP_MEMORY="-Xmx8g"` for 8 Gb of memory).
 
 ### UI ports
 
@@ -60,7 +83,7 @@ You can override these values by setting the environment variables, respectively
 
 `zeppelin/bootstrap/js` and `zeppelin/bootstrap/css` lets you deploy JS and CSS libraries inside Zeppelin.
 
-Call `./zeppelin.sh --refresh` to refresh your container without restarting it!
+__On Linux__, call `./zeppelin.sh --refresh` to refresh your container without restarting it!
 
 ## Examples
 
@@ -69,8 +92,8 @@ Call `./zeppelin.sh --refresh` to refresh your container without restarting it!
 Say you're missing the python web micro-framework [Flask](https://github.com/pallets/flask). Just add the following line to
 `snorkel/zeppelin/bootstrap/python/requirements.txt`:
 
-	Flask==0.12.2
-	
+    Flask==0.12.2
+    
 And execute `./zeppelin.sh --refresh`. Voilà! Flask is available in your Zeppelin notebook, no restart needed. 
 
 ### JS libraries
@@ -81,15 +104,15 @@ There are two ways to add javascript dependencies to your Zeppelin notebook:
 
 0. By using [unpkg](https://unpkg.com), a _fast, global content delivery network for everything on npm_:
 
-	Add the following script tag to your code in the notebook's snippet: 
-				`<script src="https://unpkg.com/mobx"></script>`
-	This will inject the static (non-minified) source code of the library in your browser.
-	
+    Add the following script tag to your code in the notebook's snippet: 
+                `<script src="https://unpkg.com/mobx"></script>`
+    This will inject the static (non-minified) source code of the library in your browser.
+    
 0. By using the `zeppelin.sh` script:
 
-	* Download the source code of the library from any CDN
-	* Add the js file to the `bootstrap/js` folder
-	* Execute `./zeppelin.sh --refresh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
+    * Download the source code of the library from any CDN
+    * Add the js file to the `bootstrap/js` folder
+    * Execute `./zeppelin.sh --refresh`. This will copy the library in the container at a location where Zeppelin can serve it to your browser.
 
 ### Scala/Java dependency
 
