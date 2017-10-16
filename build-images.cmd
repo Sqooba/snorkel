@@ -1,4 +1,4 @@
-pushd %~dp0/zeppelin
+pushd %~dp0zeppelin
 docker build . -t sqooba/zeppelin-starter && (
   echo "image sqooba/zeppelin-starter built."
 ) || (
