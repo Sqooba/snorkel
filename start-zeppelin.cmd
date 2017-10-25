@@ -1,4 +1,4 @@
-@ECHO OFF
+@echo off
 
 pushd %~dp0
 call env.cmd
