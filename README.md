@@ -70,7 +70,7 @@ to your preferred location before running the `zeppelin.sh --start` script
 ### Zeppelin interpreter memory
 
 By default half of the total available memory will be allocated to the Zeppelin interpreters on start.
-You can override this value by setting the environment variable `ZEPPELIN_INTP_MEMORY` (the value should be `-Xmx<memory>g`, where `<memory>` is the size in GB, eg: `export ZEPPELIN_INTP_MEMORY="-Xmx8g"` for 8 Gb of memory).
+You can override this value by setting the environment variable `ZEPPELIN_MEMORY` (the value should be the size in GB, eg: `export ZEPPELIN_MEMORY=8` for 8 Gb of memory).
 
 ### UI ports
 
