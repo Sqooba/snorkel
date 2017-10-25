@@ -11,7 +11,7 @@ data science libraries.
 
 # How to launch it
 
-### On Linux
+### On Linux and macOS
 
 1. `./build-images.sh`
 
@@ -32,7 +32,7 @@ data science libraries.
 
 ### On Windows
 
-Windows scripts are available (`.cdm` extension). You can execute them from the command prompt or the powershell, or simply double-click on them from the explorer (or _right-click > run_).
+Windows scripts are available (`.cmd` extension). You can execute them from the command prompt or the powershell, or simply double-click on them from the explorer (or _right-click > run_).
 
 1. `build-images.cmd`
 
@@ -83,7 +83,7 @@ You can override these values by setting the environment variables, respectively
 
 `zeppelin/bootstrap/js` and `zeppelin/bootstrap/css` lets you deploy JS and CSS libraries inside Zeppelin.
 
-__On Linux__, call `./zeppelin.sh --refresh` to refresh your container without restarting it!
+__On Linux and macOS__, call `./zeppelin.sh --refresh` to refresh your container without restarting it!
 
 ## Examples
 
