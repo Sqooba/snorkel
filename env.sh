@@ -13,8 +13,8 @@ elif [[ $OS == 'Darwin' ]]; then
    CPUS=$(sysctl -n hw.ncpu)
 fi
 
-INTEPRETER_MEMORY=$((MEMORY/2))
-export ZEPPELIN_INTP_MEMORY=${ZEPPELIN_INTP_MEMORY:--Xmx${INTEPRETER_MEMORY}g}
+INTERPRETER_MEMORY=$((MEMORY/2))
+export ZEPPELIN_INTP_MEMORY=-Xmx${ZEPPELIN_MEMORY:-$INTERPRETER_MEMORY}g
 
 export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export ZEPPELIN_ROOT_DIR=${ZEPPELIN_ROOT_DIR:-$SCRIPT_DIR/zeppelin}
